@@ -97,11 +97,10 @@
       <div class="bg-pink-50 p-6 rounded-2xl">
         <label class="flex items-center gap-3 text-lg font-medium mb-3">
           <input type="checkbox" id="include-playlist" class="w-5 h-5 accent-pink-500">
-          Add playlist (Spotify / Apple Music)
+          Add playlist (Spotify or Apple Music)
         </label>
-        <div id="playlist-options" class="hidden mt-4 space-y-4">
+        <div id="playlist-options" class="hidden mt-4">
           <input id="playlist-url" type="url" placeholder="Paste playlist link..." class="w-full p-4 rounded-xl border border-pink-200">
-          <input id="playlist-cover" type="url" placeholder="Cover image URL (optional)" class="w-full p-4 rounded-xl border border-pink-200">
         </div>
       </div>
 
@@ -139,25 +138,25 @@
 
   <script>
     const flowers = [
-      {name: 'Orchid', url: 'https://png.pngtree.com/png-clipart/20230412/ourmid/pngtree-watercolor-orchid-flower-png-image_6699320.png'},
-      {name: 'Rose', url: 'https://png.pngtree.com/png-clipart/20230401/ourmid/pngtree-red-rose-flower-watercolor-png-image_6682443.png'},
-      {name: 'Peony', url: 'https://png.pngtree.com/png-clipart/20230412/ourmid/pngtree-watercolor-peony-flower-png-image_6699318.png'},
-      {name: 'Sunflower', url: 'https://png.pngtree.com/png-clipart/20230401/ourmid/pngtree-sunflower-watercolor-png-image_6682445.png'},
-      {name: 'Dahlia', url: 'https://png.pngtree.com/png-clipart/20230412/ourmid/pngtree-watercolor-dahlia-flower-png-image_6699322.png'},
-      {name: 'Gerbera', url: 'https://png.pngtree.com/png-clipart/20230401/ourmid/pngtree-gerbera-daisy-watercolor-png-image_6682447.png'},
-      {name: 'Lily', url: 'https://png.pngtree.com/png-clipart/20230412/ourmid/pngtree-watercolor-lily-flower-png-image_6699319.png'},
-      {name: 'Daisy', url: 'https://png.pngtree.com/png-clipart/20230401/ourmid/pngtree-daisy-watercolor-png-image_6682446.png'},
-      {name: 'Tulip', url: 'https://png.pngtree.com/png-clipart/20230401/ourmid/pngtree-tulip-watercolor-png-image_6682448.png'},
-      {name: 'Carnation', url: 'https://png.pngtree.com/png-clipart/20230412/ourmid/pngtree-watercolor-carnation-flower-png-image_6699321.png'},
-      {name: 'Hydrangea', url: 'https://png.pngtree.com/png-clipart/20230401/ourmid/pngtree-hydrangea-watercolor-png-image_6682449.png'},
-      {name: 'Anemone', url: 'https://png.pngtree.com/png-clipart/20230412/ourmid/pngtree-watercolor-anemone-flower-png-image_6699323.png'}
+      {name: 'Orchid', url: 'https://img.freepik.com/free-psd/watercolor-orchid-flower-isolated_23-2151835490.jpg'},
+      {name: 'Rose', url: 'https://img.freepik.com/free-psd/watercolor-red-rose-flower_23-2151835492.jpg'},
+      {name: 'Peony', url: 'https://img.freepik.com/free-psd/watercolor-peony-flower-isolated_23-2151835494.jpg'},
+      {name: 'Sunflower', url: 'https://img.freepik.com/free-psd/watercolor-sunflower-flower-isolated_23-2151835496.jpg'},
+      {name: 'Dahlia', url: 'https://img.freepik.com/free-psd/watercolor-dahlia-flower-isolated_23-2151835498.jpg'},
+      {name: 'Gerbera', url: 'https://img.freepik.com/free-psd/watercolor-gerbera-daisy-flower_23-2151835500.jpg'},
+      {name: 'Lily', url: 'https://img.freepik.com/free-psd/watercolor-lily-flower-isolated_23-2151835502.jpg'},
+      {name: 'Daisy', url: 'https://img.freepik.com/free-psd/watercolor-daisy-flower-isolated_23-2151835504.jpg'},
+      {name: 'Tulip', url: 'https://img.freepik.com/free-psd/watercolor-tulip-flower-isolated_23-2151835506.jpg'},
+      {name: 'Carnation', url: 'https://img.freepik.com/free-psd/watercolor-carnation-flower-isolated_23-2151835508.jpg'},
+      {name: 'Hydrangea', url: 'https://img.freepik.com/free-psd/watercolor-hydrangea-flower-isolated_23-2151835510.jpg'},
+      {name: 'Anemone', url: 'https://img.freepik.com/free-psd/watercolor-anemone-flower-isolated_23-2151835512.jpg'}
     ];
 
     let selectedFlowers = [];
     const greeneryOptions = [
-      'https://png.pngtree.com/png-clipart/20230401/ourmid/pngtree-green-grass-watercolor-png-image_6682450.png',
-      'https://png.pngtree.com/png-clipart/20230412/ourmid/pngtree-watercolor-bush-greenery-png-image_6699324.png',
-      'https://png.pngtree.com/png-clipart/20230401/ourmid/pngtree-leaves-watercolor-png-image_6682451.png'
+      'https://img.freepik.com/free-psd/watercolor-green-grass-isolated_23-2151835514.jpg', // grass
+      'https://img.freepik.com/free-psd/watercolor-bush-greenery-isolated_23-2151835516.jpg', // bush
+      'https://img.freepik.com/free-psd/watercolor-leaves-greenery-isolated_23-2151835518.jpg' // leaves
     ];
     let currentGreenery = 0;
 
@@ -185,7 +184,7 @@
         selectedFlowers.push(i);
         el.classList.add('selected');
       } else {
-        alert("You can pick max 10 blooms!");
+        alert("Max 10 blooms!");
         return;
       }
       document.getElementById('selected-count').textContent = selectedFlowers.length;
@@ -198,13 +197,11 @@
       if (!container) return;
       container.innerHTML = '';
 
-      // Add greenery
       const greeneryImg = document.createElement('img');
       greeneryImg.className = 'greenery';
       greeneryImg.src = greeneryOptions[currentGreenery];
       container.appendChild(greeneryImg);
 
-      // Add flowers
       selectedFlowers.forEach((idx, pos) => {
         const f = flowers[idx];
         const img = document.createElement('img');
@@ -229,7 +226,7 @@
 
     function generateBouquet() {
       if (selectedFlowers.length < 6 || selectedFlowers.length > 10) {
-        alert("Please select between 6 and 10 blooms!");
+        alert("Please select 6 to 10 blooms!");
         return;
       }
 
@@ -237,8 +234,7 @@
         flowers: selectedFlowers,
         greenery: currentGreenery,
         playlist: document.getElementById('include-playlist').checked ? {
-          url: document.getElementById('playlist-url').value.trim() || null,
-          cover: document.getElementById('playlist-cover').value.trim() || null
+          url: document.getElementById('playlist-url').value.trim() || null
         } : null,
         card: document.getElementById('include-card').checked ? {
           recipient: document.getElementById('recipient').value.trim() || "Someone special",
@@ -247,14 +243,12 @@
       };
 
       const encoded = btoa(JSON.stringify(data));
-      const shareUrl = `${window.location.origin}${window.location.pathname}?b=${encoded}`;
       history.pushState({}, '', `?b=${encoded}`);
 
       document.getElementById('preview').classList.remove('hidden');
       renderBouquet(true);
 
-      // You can expand preview with card/envelope here later
-      alert(`Your bouquet is ready!\n\nShare this link:\n${shareUrl}`);
+      alert(`Bouquet created!\n\nYour share link:\n${location.href}\n\nCopy and send to someone special!`);
     }
 
     window.onload = () => {
@@ -262,20 +256,20 @@
       renderBouquet();
 
       const params = new URLSearchParams(window.location.search);
-      const encoded = params.get('b');
-      if (encoded) {
+      const b = params.get('b');
+      if (b) {
         try {
-          const data = JSON.parse(atob(encoded));
+          const data = JSON.parse(atob(b));
           selectedFlowers = data.flowers || [];
-          currentGreenery = data.greenery !== undefined ? data.greenery : 0;
+          currentGreenery = data.greenery ?? 0;
           document.getElementById('selected-count').textContent = selectedFlowers.length;
           document.getElementById('generate').disabled = false;
           renderBouquet(true);
           document.getElementById('preview').classList.remove('hidden');
-          // Hide builder if shared link
+          // Hide builder for shared view
           document.querySelector('main section:not(#preview)').style.display = 'none';
         } catch (e) {
-          console.error("Invalid bouquet link", e);
+          console.error("Invalid link");
         }
       }
     };
